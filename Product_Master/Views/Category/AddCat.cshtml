@@ -1,0 +1,40 @@
+﻿@model Product_Master.Models.clsCategory
+@{
+    ViewBag.Title = "AddCat";
+}
+
+<h2>AddCategory</h2>
+
+<br>
+<br>
+
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        @Html.LabelFor(model => model.CategoryName)
+        <br>
+        <br>
+        @Html.TextBoxFor(model => model.CategoryName, new { @class = "form-control" })
+        <br>
+        @Html.ValidationMessageFor(model => model.CategoryName)
+    </div>
+    <br>
+    <button type="submit" class="btn btn-success">Create</button>
+    <a href="@Url.Action("Category", "Category")" class="btn btn-secondary">Cancel</a>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+@*<label style="font-size:large;"> Category</label>
+    <br>
+    <br>
+    <input type="text" id="txtcat" class="form-control" />
+
+    <br>
+
+    <button id="btnsave" class="btn btn-success" @Url.Action("Save", "Category")>Save</button>*@
+
+
+

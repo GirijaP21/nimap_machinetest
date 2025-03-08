@@ -1,0 +1,31 @@
+﻿@model Product_Master.Models.clsProduct
+@{
+    ViewBag.Title = "Addproduct";
+}
+
+<h2>Add Product</h2>
+
+<br>
+<br>
+
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        @Html.LabelFor(model => model.ProductName)
+        <br>
+        <br>
+        @Html.TextBoxFor(model => model.ProductName, new { @class = "form-control" })
+        <br>
+        @Html.ValidationMessageFor(model => model.ProductName)
+
+        <label>Category</label>
+        <br>
+        <br>
+        @Html.DropDownListFor(model => model.CategoryId,(SelectList)ViewBag.Categories,"Select Category",new {@class = "form-control"})
+    </div>
+
+    <br>
+    <button type="submit" class="btn btn-success">Create</button>
+    <a href="@Url.Action("Product", "Product")" class="btn btn-secondary">Cancel</a>
+}
+

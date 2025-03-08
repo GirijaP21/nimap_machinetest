@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Product_Master.Models.clsProduct>
+@{
+    ViewBag.Title = "Product";
+}
+
+<h2>Product Master</h2>
+<br>
+<a href="@Url.Action("Addproduct", "Product")" class="btn btn-primary">Create New Product</a>
+
+<br>
+<br>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>ProductId</th>
+            <th>ProductName</th>
+            <th>CategoryId</th>
+            <th>CategoryName</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var Product in Model)
+        {
+            <tr>
+                <td>@Product.ProductId</td>
+                <td>@Product.ProductName</td>
+                <td>@Product.CategoryId</td>
+                <td>@Product.CategoryName</td>
+                <td>
+                    <a href="@Url.Action("EditProd", "Product", new {id = Product.ProductId})" class="btn btn-warning btn-sm">Edit</a>
+                    <a href="@Url.Action("Delete","Product", new {id = Product.ProductId})" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure you want to delete this category?')">Delete</a>
+                </td>
+            </tr>
+
+        }
+    </tbody>
+</table>
+
